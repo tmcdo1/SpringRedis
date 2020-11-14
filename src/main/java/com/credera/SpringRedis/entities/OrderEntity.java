@@ -7,6 +7,7 @@ import java.io.Serializable;
 
 @Entity
 @Data
+@Table(name = "ORDER")
 public class OrderEntity implements Serializable {
     @Id
     @GeneratedValue
@@ -15,5 +16,5 @@ public class OrderEntity implements Serializable {
     private int zip;
     @OneToMany
     @JoinColumn(name = "id")
-    private CustomerEntity custId;
+    private CustomerEntity customer;
 }
