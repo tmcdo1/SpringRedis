@@ -1,13 +1,10 @@
 package com.credera.SpringRedis.dtos;
 
-import com.credera.SpringRedis.entities.CustomerEntity;
 import lombok.Data;
-
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import java.io.Serializable;
 
 @Data
-public class OrderDto {
+public class OrderDto implements Serializable {
     private Long id;
     private String street;
     private int zip;

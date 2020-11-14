@@ -3,12 +3,11 @@ package com.credera.SpringRedis.entities;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 @Entity
 @Data
 @Table(name = "ORDER")
-public class OrderEntity implements Serializable {
+public class OrderEntity {
     @Id
     @GeneratedValue
     private Long id;
