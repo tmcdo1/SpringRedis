@@ -1,10 +1,14 @@
 package com.credera.SpringRedis.services;
 
+import com.credera.SpringRedis.configurations.CacheConfigurationProperties;
 import com.credera.SpringRedis.dtos.CustomerDto;
 import com.credera.SpringRedis.entities.CustomerEntity;
 import com.credera.SpringRedis.mappers.CustomerMapper;
 import com.credera.SpringRedis.repositories.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -20,11 +24,13 @@ public class CustomerService {
     private CustomerMapper customerMapper;
 
     // Used to insert or update a customer
+    @CachePut(value = "CUSTOMER", key = "#customerDto.getId")
     public CustomerDto upsertCustomer(CustomerDto customerDto) {
         CustomerEntity cust = customerRepository.save(customerMapper.dtoToEntity(customerDto));
         return customerMapper.entityToDto(cust);
     }
 
+    @Cacheable(value = "CUSTOMER", key = "#id")
     public Optional<CustomerDto> getCustomer(Long id) {
         Optional<CustomerEntity> custEnt = customerRepository.findById(id);
         if (custEnt.isPresent()) {
@@ -44,6 +50,7 @@ public class CustomerService {
         return custDtos;
     }
 
+    @CacheEvict(value = "CUSTOMER", key = "#id")
     public void deleteCustomer(Long id) {
         customerRepository.deleteById(id);
     }

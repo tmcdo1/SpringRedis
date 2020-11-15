@@ -7,6 +7,9 @@ import com.credera.SpringRedis.entities.OrderEntity;
 import com.credera.SpringRedis.mappers.OrderMapper;
 import com.credera.SpringRedis.repositories.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -23,11 +26,13 @@ public class OrderService {
     private OrderMapper orderMapper;
 
     // Used to insert or update a order
+    @CachePut(value = "ORDER", key = "#orderDto.getId")
     public OrderDto upsertOrder(OrderDto orderDto) {
         OrderEntity ord = orderRepository.save(orderMapper.dtoToEntity(orderDto));
         return orderMapper.entityToDto(ord);
     }
 
+    @Cacheable(value = "ORDER", key = "#id")
     public Optional<OrderDto> getOrder(Long id) {
         Optional<OrderEntity> ordEnt = orderRepository.findById(id);
         if (ordEnt.isPresent()) {
@@ -47,6 +52,7 @@ public class OrderService {
         return ordDtos;
     }
 
+    @CacheEvict(value = "ORDER", key = "#id")
     public void deleteOrder(Long id) {
         orderRepository.deleteById(id);
     }
