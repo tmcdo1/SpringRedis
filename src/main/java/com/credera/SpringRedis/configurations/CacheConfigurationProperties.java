@@ -18,6 +18,9 @@ public class CacheConfigurationProperties {
 
     private long timeoutSeconds = 60;
 
+    private String customerCacheName = "CUSTOMER";
+    private String orderCacheName = "ORDER";
+
     // Mapping of cacheNames to expiration-after-write timeout in seconds
     private Map<String, Long> cacheExpirations = new HashMap<>();
 }
