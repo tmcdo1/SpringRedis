@@ -27,7 +27,8 @@ public class OrderController {
             OrderDto newOrd = orderService.upsertOrder(orderDto);
             return ResponseEntity.status(HttpStatus.CREATED).body(newOrd);
         } catch (Exception e) {
-            log.error(e.getStackTrace().toString());
+            log.error(e.getMessage());
+            e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error creating order");
         }
     }
@@ -39,7 +40,8 @@ public class OrderController {
             OrderDto newOrd = orderService.upsertOrder(orderDto);
             return ResponseEntity.ok(newOrd);
         } catch (Exception e) {
-            log.error(e.getStackTrace().toString());
+            log.error(e.getMessage());
+            e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error updating order");
         }
     }
@@ -54,7 +56,8 @@ public class OrderController {
                 return ResponseEntity.noContent().build();
             }
         } catch (Exception e) {
-            log.error(e.getStackTrace().toString());
+            log.error(e.getMessage());
+            e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(String.format("Error retrieving order: %d",id));
         }
     }
@@ -65,7 +68,8 @@ public class OrderController {
             List<OrderDto> ords = orderService.getOrders();
             return ResponseEntity.ok(ords);
         } catch (Exception e) {
-            log.error(e.getStackTrace().toString());
+            log.error(e.getMessage());
+            e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error retrieving orders");
         }
     }
@@ -76,7 +80,8 @@ public class OrderController {
             orderService.deleteOrder(id);
             return ResponseEntity.ok().build();
         } catch (Exception e) {
-            log.error(e.getStackTrace().toString());
+            log.error(e.getMessage());
+            e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(String.format("Error deleting order: %d",id));
         }
     }

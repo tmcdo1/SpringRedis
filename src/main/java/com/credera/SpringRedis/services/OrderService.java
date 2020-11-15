@@ -26,7 +26,7 @@ public class OrderService {
     private OrderMapper orderMapper;
 
     // Used to insert or update a order
-    @CachePut(value = "ORDER", key = "#orderDto.getId")
+    @CachePut(value = "ORDER", key = "#result.getId()")
     public OrderDto upsertOrder(OrderDto orderDto) {
         OrderEntity ord = orderRepository.save(orderMapper.dtoToEntity(orderDto));
         return orderMapper.entityToDto(ord);

@@ -15,11 +15,13 @@ public class RedisCustomerRepository {
     private HashOperations hashOperations;
 
     private RedisTemplate redisTemplate;
+
     private CacheConfigurationProperties properties;
 
-    public RedisCustomerRepository(RedisTemplate redisTemplate){
+    public RedisCustomerRepository(RedisTemplate redisTemplate, CacheConfigurationProperties properties){
         this.redisTemplate = redisTemplate;
         this.hashOperations = this.redisTemplate.opsForHash();
+        this.properties = properties;
     }
 
     public void save(CustomerDto customer){

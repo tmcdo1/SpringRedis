@@ -24,7 +24,7 @@ public class CustomerService {
     private CustomerMapper customerMapper;
 
     // Used to insert or update a customer
-    @CachePut(value = "CUSTOMER", key = "#customerDto.getId")
+    @CachePut(value = "CUSTOMER", key = "#result.getId()")
     public CustomerDto upsertCustomer(CustomerDto customerDto) {
         CustomerEntity cust = customerRepository.save(customerMapper.dtoToEntity(customerDto));
         return customerMapper.entityToDto(cust);

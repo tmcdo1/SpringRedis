@@ -27,7 +27,8 @@ public class CustomerController {
             CustomerDto newCust = customerService.upsertCustomer(customerDto);
             return ResponseEntity.status(HttpStatus.CREATED).body(newCust);
         } catch (Exception e) {
-            log.error(e.getStackTrace().toString());
+            log.error(e.getMessage());
+            e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error creating customer");
         }
     }
@@ -39,7 +40,8 @@ public class CustomerController {
             CustomerDto newCust = customerService.upsertCustomer(customerDto);
             return ResponseEntity.ok(newCust);
         } catch (Exception e) {
-            log.error(e.getStackTrace().toString());
+            log.error(e.getMessage());
+            e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error updating customer");
         }
     }
@@ -54,7 +56,8 @@ public class CustomerController {
                 return ResponseEntity.noContent().build();
             }
         } catch (Exception e) {
-            log.error(e.getStackTrace().toString());
+            log.error(e.getMessage());
+            e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(String.format("Error retrieving customer: %d",id));
         }
     }
@@ -65,7 +68,8 @@ public class CustomerController {
             List<CustomerDto> custs = customerService.getCustomers();
             return ResponseEntity.ok(custs);
         } catch (Exception e) {
-            log.error(e.getStackTrace().toString());
+            log.error(e.getMessage());
+            e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error retrieving customers");
         }
     }
@@ -76,7 +80,8 @@ public class CustomerController {
             customerService.deleteCustomer(id);
             return ResponseEntity.ok().build();
         } catch (Exception e) {
-            log.error(e.getStackTrace().toString());
+            log.error(e.getMessage());
+            e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(String.format("Error deleting customer: %d",id));
         }
     }
