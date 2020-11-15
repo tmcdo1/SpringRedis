@@ -27,4 +27,9 @@ public class OrderController {
     public ResponseEntity getAllOrders() {
         return ResponseEntity.noContent().build();
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity deleteOrder(@PathVariable Long id) {
+        return ResponseEntity.ok().build();
+    }
 }
