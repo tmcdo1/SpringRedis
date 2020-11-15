@@ -1,7 +1,7 @@
-package com.credera.SpringRedis.controllers;
+package me.tmcd.SpringRedis.controllers;
 
-import com.credera.SpringRedis.dtos.OrderDto;
-import com.credera.SpringRedis.services.OrderService;
+import me.tmcd.SpringRedis.dtos.OrderDto;
+import me.tmcd.SpringRedis.services.OrderService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

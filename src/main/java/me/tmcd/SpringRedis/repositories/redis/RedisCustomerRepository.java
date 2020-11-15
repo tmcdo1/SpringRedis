@@ -1,12 +1,11 @@
-package com.credera.SpringRedis.repositories.redis;
+package me.tmcd.SpringRedis.repositories.redis;
 
-import com.credera.SpringRedis.configurations.CacheConfigurationProperties;
-import com.credera.SpringRedis.dtos.CustomerDto;
+import me.tmcd.SpringRedis.configurations.CacheConfigurationProperties;
+import me.tmcd.SpringRedis.dtos.CustomerDto;
 import org.springframework.data.redis.core.HashOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Repository;
 
-import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
 

@@ -1,11 +1,9 @@
-package com.credera.SpringRedis.services;
+package me.tmcd.SpringRedis.services;
 
-import com.credera.SpringRedis.dtos.CustomerDto;
-import com.credera.SpringRedis.dtos.OrderDto;
-import com.credera.SpringRedis.entities.CustomerEntity;
-import com.credera.SpringRedis.entities.OrderEntity;
-import com.credera.SpringRedis.mappers.OrderMapper;
-import com.credera.SpringRedis.repositories.OrderRepository;
+import me.tmcd.SpringRedis.dtos.OrderDto;
+import me.tmcd.SpringRedis.entities.OrderEntity;
+import me.tmcd.SpringRedis.mappers.OrderMapper;
+import me.tmcd.SpringRedis.repositories.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;

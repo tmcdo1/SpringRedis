@@ -1,4 +1,4 @@
-package com.credera.SpringRedis.configurations;
+package me.tmcd.SpringRedis.configurations;
 
 import org.springframework.cache.CacheManager;
 import org.springframework.context.annotation.Bean;

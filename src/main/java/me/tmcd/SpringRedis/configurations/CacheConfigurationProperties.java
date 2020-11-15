@@ -1,4 +1,4 @@
-package com.credera.SpringRedis.configurations;
+package me.tmcd.SpringRedis.configurations;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

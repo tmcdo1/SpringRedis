@@ -1,4 +1,4 @@
-package com.credera.SpringRedis.entities;
+package me.tmcd.SpringRedis.entities;
 
 import lombok.Data;
 

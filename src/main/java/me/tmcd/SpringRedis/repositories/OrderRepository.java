@@ -1,6 +1,6 @@
-package com.credera.SpringRedis.repositories;
+package me.tmcd.SpringRedis.repositories;
 
-import com.credera.SpringRedis.entities.OrderEntity;
+import me.tmcd.SpringRedis.entities.OrderEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

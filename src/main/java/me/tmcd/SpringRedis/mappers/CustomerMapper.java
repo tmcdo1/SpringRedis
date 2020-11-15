@@ -1,7 +1,7 @@
-package com.credera.SpringRedis.mappers;
+package me.tmcd.SpringRedis.mappers;
 
-import com.credera.SpringRedis.dtos.CustomerDto;
-import com.credera.SpringRedis.entities.CustomerEntity;
+import me.tmcd.SpringRedis.dtos.CustomerDto;
+import me.tmcd.SpringRedis.entities.CustomerEntity;
 import org.springframework.stereotype.Service;
 
 @Service

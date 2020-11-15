@@ -1,4 +1,4 @@
-package com.credera.SpringRedis.dtos;
+package me.tmcd.SpringRedis.dtos;
 
 import lombok.Data;
 
