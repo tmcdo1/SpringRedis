@@ -23,8 +23,9 @@ public class OrderService {
     private OrderMapper orderMapper;
 
     // Used to insert or update a order
-    public void upsertOrder(OrderDto orderDto) {
-        orderRepository.save(orderMapper.dtoToEntity(orderDto));
+    public OrderDto upsertOrder(OrderDto orderDto) {
+        OrderEntity ord = orderRepository.save(orderMapper.dtoToEntity(orderDto));
+        return orderMapper.entityToDto(ord);
     }
 
     public Optional<OrderDto> getOrder(Long id) {

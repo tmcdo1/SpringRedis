@@ -20,8 +20,9 @@ public class CustomerService {
     private CustomerMapper customerMapper;
 
     // Used to insert or update a customer
-    public void upsertCustomer(CustomerDto customerDto) {
-        customerRepository.save(customerMapper.dtoToEntity(customerDto));
+    public CustomerDto upsertCustomer(CustomerDto customerDto) {
+        CustomerEntity cust = customerRepository.save(customerMapper.dtoToEntity(customerDto));
+        return customerMapper.entityToDto(cust);
     }
 
     public Optional<CustomerDto> getCustomer(Long id) {
