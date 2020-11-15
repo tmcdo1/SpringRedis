@@ -57,7 +57,6 @@ public class CustomerController {
             log.error(e.getStackTrace().toString());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(String.format("Error retrieving customer: %d",id));
         }
-
     }
 
     @GetMapping("/")
